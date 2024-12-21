@@ -7,7 +7,7 @@ import 'swiper/css/scrollbar';
 import 'swiper/css';
 const Banner = () => {
     return (
-        <div className={`max-w-[1440px] mx-auto h-[85vh] bg-world bg-no-repeat bg-cover mt-10 `}>
+        <div className={` h-[85vh] bg-world bg-no-repeat bg-cover mt-10 `}>
 
             <Swiper
                 scrollbar={{

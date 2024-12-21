@@ -6,7 +6,7 @@ const NavBer = () => {
     const [open, setOpen] = useState(false)
     const nav = <>
         <NavLink> <li>Home</li></NavLink>
-        <NavLink ><li>Rooms</li></NavLink>
+        <NavLink to={'rooms'}><li>Rooms</li></NavLink>
         <NavLink ><li>My Bookings</li></NavLink>
         <NavLink ><li>About-us</li></NavLink>
 
@@ -14,7 +14,7 @@ const NavBer = () => {
     return (
 
         <div >
-            <div className="top-0 mt-8 max-w-[1440px] mx-auto   sticky rounded-full z-30 text-darkGray bg-softGreen backdrop-blur-xl  py-6 ">
+            <div className="top-0 mt-8    sticky rounded-full z-30 text-darkGray bg-softGreen backdrop-blur-xl  py-6 ">
                 <div className="flex justify-between w-11/12 mx-auto items-center   ">
 
                     <div className="md:hidden block ">

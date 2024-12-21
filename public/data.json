@@ -1,57 +1,56 @@
-const rooms = [
-    {
-      room_img: "https://via.placeholder.com/500x300?text=Room+1",
-      room: "Ocean View Suite",
-      price: "$150/night",
-      date: "Available from: 01/01/2024",
-      details: "A luxurious suite with a stunning ocean view. Includes a king-sized bed, private balcony, and a spacious bathroom. Perfect for a romantic getaway or a peaceful retreat.",
-      description: "Wake up to the sound of waves crashing and enjoy your morning coffee on your private balcony with an unbeatable view of the ocean. This suite offers all the comforts of home with a touch of luxury.",
-      room_count: 5  // Number of rooms available
-    },
-    {
-      room_img: "https://via.placeholder.com/500x300?text=Room+2",
-      room: "Mountain Retreat",
-      price: "$120/night",
-      date: "Available from: 10/01/2024",
-      details: "Relax in this cozy room overlooking the mountains. Features a queen-sized bed, fireplace, and rustic decor. Ideal for nature lovers and those seeking peace and solitude.",
-      description: "Nestled in the heart of the mountains, this room offers the perfect escape. Unwind in front of the fireplace after a day of hiking or simply enjoy the breathtaking mountain views.",
-      room_count: 3  // Number of rooms available
-    },
-    {
-      room_img: "https://via.placeholder.com/500x300?text=Room+3",
-      room: "Deluxe Suite",
-      price: "$200/night",
-      date: "Available from: 15/01/2024",
-      details: "An elegant suite with modern amenities. Includes a king-sized bed, lounge area, and large bathtub. Ideal for guests who seek comfort and luxury in equal measure.",
-      description: "Step into a world of sophistication and comfort. This deluxe suite offers ample space, sleek design, and all the modern amenities you need to feel at home while traveling.",
-      room_count: 2  // Number of rooms available
-    },
-    {
-      room_img: "https://via.placeholder.com/500x300?text=Room+4",
-      room: "Family Room",
-      price: "$180/night",
-      date: "Available from: 05/01/2024",
-      details: "Perfect for families. Includes a double bed, two single beds, a mini-fridge, and a spacious bathroom. Comfortable and convenient for families of all sizes.",
-      description: "Traveling with your family? This spacious room is designed for your comfort with plenty of space for everyone. Whether you’re enjoying family time in the room or exploring the area, you’ll feel right at home.",
-      room_count: 10  // Number of rooms available
-    },
-    {
-      room_img: "https://via.placeholder.com/500x300?text=Room+5",
-      room: "Business Suite",
-      price: "$250/night",
-      date: "Available from: 01/01/2024",
-      details: "Designed for business travelers. Features a desk, high-speed internet, king-sized bed, and luxury bathroom. Everything you need to stay productive and comfortable.",
-      description: "With a spacious work area, high-speed Wi-Fi, and luxurious amenities, this suite is perfect for the modern professional. Whether you’re working or unwinding, this suite has you covered.",
-      room_count: 4  // Number of rooms available
-    },
-    {
-      room_img: "https://via.placeholder.com/500x300?text=Room+6",
-      room: "Garden View Room",
-      price: "$130/night",
-      date: "Available from: 20/01/2024",
-      details: "A tranquil room with a view of the lush garden. Includes a queen-sized bed, private balcony, and a cozy atmosphere. Perfect for those who want to relax in nature’s embrace.",
-      description: "This peaceful room offers a serene escape with its view of the beautiful garden. Perfect for reading, meditation, or simply relaxing after a busy day, the Garden View Room offers a tranquil retreat.",
-      room_count: 8  // Number of rooms available
-    }
-  ];
-  
+[
+  {
+    "room_img": "https://i.ibb.co.com/YWczTXM/360-F-639887058-HCisflm-W1-CTF4-Eo-NBv2-CADRdf0-Rft-No-R.jpg",
+    "room": "Ocean View Suite",
+    "price": "$150/night",
+    "date": "Available from: 01/01/2024",
+    "details": "A luxurious suite with a stunning ocean view. Includes a king-sized bed, private balcony, and a spacious bathroom. Perfect for a romantic getaway or a peaceful retreat.",
+    "description": "Wake up to the sound of waves crashing and enjoy your morning coffee on your private balcony with an unbeatable view of the ocean. This suite offers all the comforts of home with a touch of luxury.",
+    "room_count": 5
+  },
+  {
+    "room_img": "https://i.ibb.co.com/wM48kpP/premium-photo-1661963239507-7bdf41a5e66b.jpg",
+    "room": "Mountain Retreat",
+    "price": "$120/night",
+    "date": "Available from: 10/01/2024",
+    "details": "Relax in this cozy room overlooking the mountains. Features a queen-sized bed, fireplace, and rustic decor. Ideal for nature lovers and those seeking peace and solitude.",
+    "description": "Nestled in the heart of the mountains, this room offers the perfect escape. Unwind in front of the fireplace after a day of hiking or simply enjoy the breathtaking mountain views.",
+    "room_count": 3
+  },
+  {
+    "room_img": "https://i.ibb.co.com/yhqK5mD/luxury-classic-modern-bedroom-suite-hotel-105762-1787.jpg",
+    "room": "Deluxe Suite",
+    "price": "$200/night",
+    "date": "Available from: 15/01/2024",
+    "details": "An elegant suite with modern amenities. Includes a king-sized bed, lounge area, and large bathtub. Ideal for guests who seek comfort and luxury in equal measure.",
+    "description": "Step into a world of sophistication and comfort. This deluxe suite offers ample space, sleek design, and all the modern amenities you need to feel at home while traveling.",
+    "room_count": 2
+  },
+  {
+    "room_img": "https://i.ibb.co.com/QMj5gBc/premium-photo-1661964402307-02267d1423f5.jpg",
+    "room": "Family Room",
+    "price": "$180/night",
+    "date": "Available from: 05/01/2024",
+    "details": "Perfect for families. Includes a double bed, two single beds, a mini-fridge, and a spacious bathroom. Comfortable and convenient for families of all sizes.",
+    "description": "Traveling with your family? This spacious room is designed for your comfort with plenty of space for everyone. Whether you’re enjoying family time in the room or exploring the area, you’ll feel right at home.",
+    "room_count": 10
+  },
+  {
+    "room_img": "https://i.ibb.co.com/dG6wHmw/premium-photo-1661879252375-7c1db1932572.jpg",
+    "room": "Business Suite",
+    "price": "$250/night",
+    "date": "Available from: 01/01/2024",
+    "details": "Designed for business travelers. Features a desk, high-speed internet, king-sized bed, and luxury bathroom. Everything you need to stay productive and comfortable.",
+    "description": "With a spacious work area, high-speed Wi-Fi, and luxurious amenities, this suite is perfect for the modern professional. Whether you’re working or unwinding, this suite has you covered.",
+    "room_count": 4
+  },
+  {
+    "room_img": "https://i.ibb.co.com/4dX45Dd/dd4a10d23153a925f9e930b47e459cf5.jpg",
+    "room": "Garden View Room",
+    "price": "$130/night",
+    "date": "Available from: 20/01/2024",
+    "details": "A tranquil room with a view of the lush garden. Includes a queen-sized bed, private balcony, and a cozy atmosphere. Perfect for those who want to relax in nature’s embrace.",
+    "description": "This peaceful room offers a serene escape with its view of the beautiful garden. Perfect for reading, meditation, or simply relaxing after a busy day, the Garden View Room offers a tranquil retreat.",
+    "room_count": 8
+  }
+]
