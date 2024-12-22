@@ -3,10 +3,10 @@ import { toast } from "react-toastify";
 import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
-
     const navigate = useNavigate()
     const { state } = useLocation()
-    const { signInUser } = useAuth()
+    console.log(state)
+    const { signInUser, googleLogin } = useAuth()
     const handleSignIn = e => {
         e.preventDefault()
         const form = new FormData(e.target)
@@ -29,16 +29,16 @@ const Login = () => {
             })
 
     }
-    // const handleGoogleLogin = () => {
-    //     googleLogin()
-    //         .then(res => {
-
-    //             navigate(state || '/')
-    //         })
-    //         .then(err => {
-
-    //         })
-    // }
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(res => {
+                console.log(res)
+                navigate(state || '/')
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
     return (
         <div className="flex justify-center">
             <div className={`mt-28 shadow-2xl  w-fit p-10 rounded-md`}>
@@ -73,7 +73,7 @@ const Login = () => {
                                 type="checkbox"
                                 name=""
                                 id="" />Remember me?</p>
-                        <p className={`border-b cursor-pointer   `}>Forget Password</p>
+                        <p className={`border-b cursor-pointer`}>Forget Password</p>
                     </div>
                     <div className="flex mt-10">
                         <button className="rounded-sm w-full text-center py-3 text-xl font-semibold bg-[#4CAF50] hover:shadow-xl duration-300">Sign In</button>
@@ -81,7 +81,7 @@ const Login = () => {
                 </form>
                 <div className="flex pt-4 mt-4 border-t-2">
                     <button
-                        // onClick={handleGoogleLogin}
+                        onClick={handleGoogleLogin}
                         className="flex justify-center items-center  rounded-sm w-full  py-3 text-xl font-semibold bg-[#4CAF50] hover:shadow-xl duration-300">
                         <img className="w-7" src="https://img.icons8.com/?size=100&id=17950&format=png&color=000000" alt="" />
                         oogle

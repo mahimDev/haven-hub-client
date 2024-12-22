@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/firebase";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
-import { GoogleAuthProvider } from "firebase/auth/web-extension";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+
 
 export const AuthContext = createContext(null)
 const AuthProviter = (props = {}) => {
@@ -38,8 +38,10 @@ const AuthProviter = (props = {}) => {
 
     const authInfo = {
         user,
+        loading,
         createUser,
         signInUser,
+        googleLogin,
         signOutUser
     }
     return (

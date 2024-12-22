@@ -4,9 +4,9 @@ import { toast } from "react-toastify";
 
 const Register = () => {
     const isDark = true
-    const { user, createUser } = useAuth()
+    const { user, createUser, googleLogin } = useAuth()
     const navigate = useNavigate()
-    // const { state } = useLocation()
+    const { state } = useLocation()
     const handleRegistration = e => {
         e.preventDefault()
         const form = new FormData(e.target)
@@ -45,14 +45,14 @@ const Register = () => {
     }
     const handleGoogleLogin = () => {
 
-        // googleLogin()
-        //     .then(res => {
+        googleLogin()
+            .then(res => {
 
-        //         navigate(state || "/")
-        //     })
-        //     .then(err => {
+                navigate(state || "/")
+            })
+            .then(err => {
 
-        //     })
+            })
     }
     console.log(user)
     return (
