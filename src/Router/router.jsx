@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
 import Home from "../Pages/Home/Home";
-import Banner from "../Shared/Banner/Banner";
 import Rooms from "../Pages/Rooms/Rooms";
+import RoomDetails from "../Pages/RoomDetails/RoomDetails";
 
 const router = createBrowserRouter([
     {
@@ -13,18 +13,17 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                children: [
-                    {
-                        path: '/',
-                        element: <Banner></Banner>
-                    },
-                    {
-                        path: '/rooms',
-                        element: <Rooms></Rooms>
-                    },
-                ]
             },
-
+            {
+                path: '/rooms',
+                element: <Rooms></Rooms>,
+                loader: () => fetch('http://localhost:3000/rooms')
+            },
+            {
+                path: '/roomDetails/:id',
+                element: <RoomDetails></RoomDetails>,
+                loader: () => fetch('http://localhost:3000/rooms')
+            },
         ]
     },
     {

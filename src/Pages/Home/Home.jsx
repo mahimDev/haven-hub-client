@@ -1,16 +1,13 @@
-import { Outlet } from "react-router-dom";
-
-
-import NavBer from "../../Shared/NavBer/NavBer";
+import Banner from '../../Shared/Banner/Banner';
 
 const Home = () => {
     return (
         <div>
-            <nav className="max-w-[1440px] mx-auto">
-                <NavBer></NavBer>
-            </nav>
+            <header className="max-w-[1440px] mx-auto">
+                <Banner></Banner>
+            </header>
             <main className="max-w-[1440px] mx-auto">
-                <Outlet />
+
             </main>
             <footer>
                 <h1>footer</h1>
