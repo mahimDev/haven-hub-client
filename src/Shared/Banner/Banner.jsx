@@ -5,6 +5,7 @@ import { Typewriter } from 'react-simple-typewriter'
 
 import 'swiper/css/scrollbar';
 import 'swiper/css';
+import { Link } from 'react-router-dom';
 const Banner = () => {
     return (
         <div className={` h-[85vh] bg-world bg-no-repeat bg-cover mt-10 `}>
@@ -45,6 +46,11 @@ const Banner = () => {
                                         </span>
                                     </h1>
                                 </div>
+                                <Link to={'/rooms'}>
+                                    <div className='flex justify-center mt-10'>
+                                        <button className='py-3 px-6 border bg-softGreen rounded-3xl '>Room</button>
+                                    </div>
+                                </Link>
                             </div>
                             <div className='flex-1'>
                                 <img className='w-full max-h-[80vh] object-cover mt-5' src="https://i.ibb.co.com/h77bWQF/Pngtree-hiking-sticker-with-a-man-12232316.png" alt="" />
