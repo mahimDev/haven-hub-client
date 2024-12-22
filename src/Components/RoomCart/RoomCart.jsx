@@ -12,7 +12,7 @@ const RoomCart = (props = {}) => {
         room_img,
         _id
     } = roomInfo
-    console.log(roomInfo)
+
     return (
         <div className="mt-10">
             <Link to={`/roomDetails/${_id}`}>
