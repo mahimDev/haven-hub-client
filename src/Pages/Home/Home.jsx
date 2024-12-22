@@ -1,6 +1,7 @@
 import Banner from '../../Shared/Banner/Banner';
 
 const Home = () => {
+
     return (
         <div>
             <header className="max-w-[1440px] mx-auto">

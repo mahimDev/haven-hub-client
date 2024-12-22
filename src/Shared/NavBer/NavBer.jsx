@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
+import { toast } from "react-toastify";
 
 const NavBer = () => {
-    const user = true
+    const { user, signOutUser } = useAuth()
     const [open, setOpen] = useState(false)
     const nav = <>
         <NavLink> <li>Home</li></NavLink>
@@ -11,6 +13,16 @@ const NavBer = () => {
         <NavLink ><li>About-us</li></NavLink>
 
     </>
+    const handleLogout = () => {
+        signOutUser()
+            .then(() => {
+
+                toast.success('logout successfully')
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
     return (
 
         <div >
@@ -39,22 +51,40 @@ const NavBer = () => {
                             {nav}
                         </ul>
                     </div>
-                    {
-                        user ?
-                            <div className="flex items-center gap-4">
-                                {
-                                    user?.photoURL && <img className="w-12 h-12 object-cover rounded-full" src="" alt="" />
+                    <div>
+                        {
+                            user ?
+                                <div className="group relative">
+                                    <img
+                                        width={500}
+                                        height={500}
+                                        className="size-12 rounded-full bg-slate-500 object-cover"
+                                        src={user?.photoURL}
+                                        alt="avatar GlobalGate"
+                                    />
+                                    <div className={`group-hover:block hidden rounded-xl absolute right-0 top-12 p-5 bg-white/70 backdrop-blur-2xl `}>
+                                        <h1 className="mb-2">{user?.displayName}</h1>
+                                        <h1 className="my-2">{user?.email}</h1>
+                                        <button
 
-                                }
-                                <button
+                                            onClick={handleLogout}
+                                            className={`  border-2 border-black bg-softGreen
+                                 py-1 px-3 font-semibold rounded-md `}
+                                        >LogOut</button>
+                                    </div>
+                                </div>
+                                :
 
-                                    className="border-2 border-white  py-1 px-3 font-semibold text-xl rounded-md"> Sign Out</button>
-
-                            </div>
-                            :
-                            <Link to='/login'> <button className="border-2 border-white  py-1 px-3 font-semibold text-xl rounded-md"> Sign In</button></Link>
-
-                    }
+                                <div className="flex gap-2">
+                                    <Link to={'/login'}>
+                                        <button className={`border-2 border-black  py-1 px-3 font-semibold rounded-md $`}
+                                        >Login</button></Link>
+                                    <Link to={'/register'}>
+                                        <button className={`border-2 border-black  py-1 px-3 font-semibold rounded-md $`}
+                                        >Register</button></Link>
+                                </div>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
