@@ -2,12 +2,19 @@ import axios from "axios";
 import moment from "moment";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import useAuth from "../../Hooks/useAuth";
+import ReactStars from "react-stars";
 
 const MyBookingCart = (props = {}) => {
     const { booking, bookingUser, setBookingUser } = props || {}
     const { room_img, dateValue: date, price, _id } = booking
+    const { user } = useAuth()
+    const userName = user?.displayName
+    const email = user?.email
     const momentDate = moment(date).format('MM/DD/YYYY')
+    const [rating, setRating] = useState(0);
     const [isopen, setIsOpen] = useState(false)
+    const [isopenRivew, setIsOpenRivew] = useState(false)
     const [dateValue, setDateValue] = useState(new Date())
     const handleCancelBooking = async _id => {
         try {
@@ -46,7 +53,24 @@ const MyBookingCart = (props = {}) => {
         setIsOpen(false)
         // console.log(id, dateValue)
     }
+    const handleReviewBtn = async (e, roomId) => {
+        e.preventDefault()
+        const info = { roomId, userName, email, rating }
 
+        try {
+            await axios.post(`http://localhost:3000/reviews`, info)
+                .then(res => {
+                    if (res.data.insertedId) {
+                        toast.success('Thank you so much for your review 🤗')
+                    }
+                })
+        } catch (err) {
+            toast.warn(err.response.data)
+        }
+
+        setIsOpenRivew(false)
+
+    }
     return (
         <tr className="hover:bg-gray-50 border-b transition duration-300">
             <td className="py-4 px-4 flex justify-start">
@@ -54,6 +78,7 @@ const MyBookingCart = (props = {}) => {
             </td>
             <td className="py-4 px-6 border-b text-lg font-medium">{price}</td>
             {/* <td className="py-4 px-6 border-b text-lg font-medium"></td> */}
+            {/* update btn */}
             <td className="py-4 px-6 border-b  text-center ">
                 <div className="flex justify-center items-center gap-4">
                     <p> {momentDate}</p>
@@ -62,9 +87,14 @@ const MyBookingCart = (props = {}) => {
                         className="bg-softGreen hover:scale-110 scale-100 transition-all duration-100 text-white py-2 px-4 rounded-md">Update Date</button>
                 </div>
             </td>
+            {/* review btn */}
             <td className="py-4 px-6 border-b text-center ">
-                <button className="bg-warmOrange hover:scale-110 scale-100 transition-all duration-100 text-white py-2 px-4 rounded-md">Review</button>
+                <button
+                    onClick={() => setIsOpenRivew(true)}
+                    // onClick={(e) => handleReviewBtn(e, _id)}
+                    className="bg-warmOrange hover:scale-110 scale-100 transition-all duration-100 text-white py-2 px-4 rounded-md">Review</button>
             </td>
+            {/* cancel btn */}
             <td className="py-4 px-6 border-b text-end">
                 <button
                     onClick={() => handleCancelBooking(_id)}
@@ -99,6 +129,38 @@ const MyBookingCart = (props = {}) => {
 
                 </div>
 
+            }
+            {/* rivew modal */}
+            {
+                isopenRivew &&
+                <div className="bg-lightGray shadow-2xl px-20 py-10 rounded-md w-fit absolute top-[30%] left-[40%] z-50">
+                    <form
+                        className="flex-col flex space-y-3">
+
+                        <div className=" ">
+
+                            <ReactStars
+                                count={5}
+                                onChange={setRating}
+                                size={64}
+                                color2={'#ffd700'} />
+                        </div>
+                        <div className="flex justify-center gap-4">
+                            <button
+                                onClick={(e) => handleReviewBtn(e, _id)}
+                                className="bg-softGreen py-2 px-6 rounded-2xl font-semibold mt-3 shadow-2xl hover:shadow-xl"
+                            >Confirm
+                            </button>
+                            <button
+                                onClick={() => setIsOpenRivew(false)}
+                                className="bg-red-500 py-2 px-6 rounded-2xl font-semibold mt-3  shadow-2xl hover:shadow-xl"
+                            >Cancel
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
             }
         </tr>
 

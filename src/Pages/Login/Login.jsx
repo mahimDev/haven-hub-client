@@ -5,15 +5,15 @@ import useAuth from "../../Hooks/useAuth";
 const Login = () => {
     const navigate = useNavigate()
     const { state } = useLocation()
-    console.log(state)
+    // console.log(state)
     const { signInUser, googleLogin } = useAuth()
     const handleSignIn = e => {
         e.preventDefault()
         const form = new FormData(e.target)
         const email = form.get('email')
         const password = form.get('password')
-        const userInfo = { email, password }
-        console.log(userInfo)
+        // const userInfo = { email, password }
+
         signInUser(email, password)
             .then(res => {
                 console.log('User login')
@@ -22,7 +22,7 @@ const Login = () => {
             })
             .catch(err => {
                 const massage = err.code
-                console.log(massage)
+                // console.log(massage)
                 const split = massage.split('/')[1].split('-').join(" ")
                 toast.error(split)
 
@@ -32,11 +32,11 @@ const Login = () => {
     const handleGoogleLogin = () => {
         googleLogin()
             .then(res => {
-                console.log(res)
+                // console.log(res)
                 navigate(state || '/')
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
             })
     }
     return (

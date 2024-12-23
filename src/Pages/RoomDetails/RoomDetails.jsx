@@ -24,7 +24,7 @@ const RoomDetails = () => {
         e.preventDefault()
         const email = user.email
         const info = { dateValue, room_id, email }
-        console.log(info)
+
         try {
             await axios.post('http://localhost:3000/roomBooking', info)
                 .then(res => {
