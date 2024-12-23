@@ -1,0 +1,96 @@
+import { useEffect, useState } from "react";
+
+const TheBestPlace = () => {
+    const [activeCard, setActiveCard] = useState(0);
+    const cards = [1, 2, 3, 4];
+    const color = "bg-darkGray text-white"
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveCard((prev) => (prev + 1) % cards.length);
+
+        }, 6000)
+        return () => clearInterval(interval)
+    }, [cards.length])
+
+
+    return (
+        <div className="flex mt-10 gap-20 mx-auto">
+
+            <div className="flex-1 border">
+                {
+                    activeCard === 0 && <img src="https://img.icons8.com/?size=100&id=124222&format=png&color=000000" alt="" />
+                }
+
+            </div>
+
+            <div className="space-y-5 flex-1 ">
+                {/* card 1 */}
+                <div className={`${activeCard === 0 && `${color} `} flex items-center gap-2 border rounded-xl py-2 px-5 max-w-[550px] transition-all duration-700`}>
+                    {activeCard === 0 ?
+                        <img className="w-24" src="https://img.icons8.com/?size=100&id=124222&format=png&color=FFFFFF" alt="" />
+                        :
+                        <img className="w-24" src="https://img.icons8.com/?size=100&id=124222&format=png&color=000000" alt="" />
+                    }
+                    <div>
+                        <h1 className="text-xl font-semibold">
+                            Meeting Room
+                        </h1>
+                        <p className="mt-1 ">
+                            Donec facilisis diam felis, sit amet bibendum augue feugiat finibus.
+                        </p>
+                    </div>
+                </div>
+                {/* card 2 */}
+                <div className={`${activeCard === 1 && `${color} `} flex items-center gap-2 border rounded-xl py-2 px-5 max-w-[550px] transition-all duration-700`}>
+                    {activeCard === 1 ?
+                        <img className="w-24" src="https://img.icons8.com/?size=100&id=24555&format=png&color=FFFFFF" alt="" />
+                        :
+                        <img className="w-24" src="https://img.icons8.com/?size=100&id=24555&format=png&color=000000" alt="" />
+                    }
+                    <div>
+                        <h1 className="text-xl font-semibold">
+                            Restaurant
+                        </h1>
+                        <p className="mt-1 ">
+                            Vestibulum quis pharetra augue. Vestibulum sem lectus, consectetur sem.
+                        </p>
+                    </div>
+                </div>
+                {/* card 3 */}
+                <div className={`${activeCard === 2 && `${color} `} flex items-center gap-2 border rounded-xl py-2 px-5 max-w-[550px] transition-all duration-700`}>
+                    {activeCard === 2 ?
+                        <img className="w-24" src="https://img.icons8.com/?size=100&id=tzX6XorLMWhn&format=png&color=FFFFFF" alt="" />
+                        :
+                        <img className="w-24" src="https://img.icons8.com/?size=100&id=tzX6XorLMWhn&format=png&color=000000" alt="" />
+                    }
+                    <div>
+                        <h1 className="text-xl font-semibold">
+                            Spa
+                        </h1>
+                        <p className="mt-1 ">
+                            Nam vestibulum, ex in varius maximus, turpis est efficitur purus, id molestie purus nisl quis nisi.
+                        </p>
+                    </div>
+                </div>
+                {/* card 4 */}
+                <div className={`${activeCard === 3 && `${color} `} flex items-center gap-2 border rounded-xl py-2 px-5 max-w-[550px] transition-all duration-700`}>
+                    {activeCard === 3 ?
+                        <img className="w-24" src="https://img.icons8.com/?size=100&id=Qnn9VfdCAdfs&format=png&color=FFFFFF" alt="" />
+                        :
+                        <img className="w-24" src="https://img.icons8.com/?size=100&id=Qnn9VfdCAdfs&format=png&color=000000" alt="" />
+                    }
+                    <div>
+                        <h1 className="text-xl font-semibold">
+                            Sightseeing Tour
+                        </h1>
+                        <p className="mt-1 ">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sollicitudin elementum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default TheBestPlace;
