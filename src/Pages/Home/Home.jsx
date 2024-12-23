@@ -1,4 +1,5 @@
 import Banner from '../../Shared/Banner/Banner';
+import Featured from '../../Shared/Featured/Featured';
 
 const Home = () => {
 
@@ -8,7 +9,7 @@ const Home = () => {
                 <Banner></Banner>
             </header>
             <main className="max-w-[1440px] mx-auto">
-
+                <Featured></Featured>
             </main>
             <footer>
                 <h1>footer</h1>
