@@ -2,12 +2,12 @@ import axios from "axios";
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
-import Swal from "sweetalert2";
+import DatePicker from 'react-date-picker';
 import useAuth from "../../Hooks/useAuth";
-
+import 'react-date-picker/dist/DatePicker.css';
 const RoomDetails = () => {
     const [isOpen, setIsOpen] = useState(false)
-    const [dateValue, setDateValue] = useState(null)
+    const [dateValue, setDateValue] = useState(new Date())
     const { user } = useAuth()
     const loaderData = useLoaderData()
     const {
@@ -24,6 +24,7 @@ const RoomDetails = () => {
         e.preventDefault()
         const email = user.email
         const info = { dateValue, room_id, email }
+        console.log(info)
         try {
             await axios.post('http://localhost:3000/roomBooking', info)
                 .then(res => {
@@ -85,7 +86,9 @@ const RoomDetails = () => {
                                     type="date"
                                     name="date"
                                     id="" />
-
+                                {/* <div>
+                                    <DatePicker onChange={setDateValue} value={dateValue} />
+                                </div> */}
                                 <div className="flex justify-center gap-4">
                                     <button
                                         onClick={handleBookingBtn}

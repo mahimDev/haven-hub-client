@@ -4,13 +4,13 @@ import useAuth from "../../Hooks/useAuth";
 import MyBookingCart from "../../Components/MyBookingCart/MyBookingCart";
 
 const MyBookings = () => {
+
     const { user } = useAuth()
-    const [bookingUser, setBookingUser] = useState(null)
+    const [bookingUser, setBookingUser] = useState([])
     useEffect(() => {
         axios.get(`http://localhost:3000/myBookings/${user.email}`)
             .then(res => setBookingUser(res.data))
     }, [user.email])
-
     return (
         <div className="max-w-[1440px] mx-auto mt-10">
 
@@ -20,15 +20,20 @@ const MyBookings = () => {
                         <tr className="bg-softGreen text-white">
                             <th className="py-4 px-6 text-lg text-left border-b">Room Image</th>
                             <th className="py-4 px-6 text-lg text-left border-b">Price</th>
-                            <th className="py-4 px-6 text-lg text-left border-b">Date</th>
-                            <th className="py-4 px-6 text-lg border-b text-center">Update Date</th>
+                            {/* <th className="py-4 px-6 text-lg text-left border-b">Date</th> */}
+                            <th className="py-4 px-6 text-lg border-b text-center">Date</th>
                             <th className="py-4 px-6 text-lg border-b text-center">Give Review</th>
                             <th className="py-4 px-6 text-lg border-b text-end">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            bookingUser?.map(booking => <MyBookingCart key={booking._id} booking={booking}></MyBookingCart>)
+                            bookingUser?.map(booking => <MyBookingCart
+                                key={booking._id}
+                                booking={booking}
+                                bookingUser={bookingUser}
+                                setBookingUser={setBookingUser}
+                            ></MyBookingCart>)
                         }
                     </tbody>
                 </table>
