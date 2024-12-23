@@ -16,6 +16,7 @@ const MyBookingCart = (props = {}) => {
     const [isopen, setIsOpen] = useState(false)
     const [isopenRivew, setIsOpenRivew] = useState(false)
     const [dateValue, setDateValue] = useState(new Date())
+    const [comments, setComments] = useState('')
     const handleCancelBooking = async _id => {
         try {
             await axios.delete(`http://localhost:3000/cancleBooking/${_id}`)
@@ -55,7 +56,8 @@ const MyBookingCart = (props = {}) => {
     }
     const handleReviewBtn = async (e, roomId) => {
         e.preventDefault()
-        const info = { roomId, userName, email, rating }
+
+        const info = { roomId, userName, email, rating, comments }
 
         try {
             await axios.post(`http://localhost:3000/reviews`, info)
@@ -134,17 +136,24 @@ const MyBookingCart = (props = {}) => {
             {
                 isopenRivew &&
                 <div className="bg-lightGray shadow-2xl px-20 py-10 rounded-md w-fit absolute top-[30%] left-[40%] z-50">
+                    <h1 className="text-xl text-center ">{userName || 'user Name'}</h1>
                     <form
                         className="flex-col flex space-y-3">
-
-                        <div className=" ">
-
+                        <div>
                             <ReactStars
                                 count={5}
                                 onChange={setRating}
                                 size={64}
                                 color2={'#ffd700'} />
+
+                            <textarea
+                                onChange={(e) => setComments(e.target.value)}
+                                className="w-full rounded pt-2 pl-3"
+                                placeholder="comment here"
+                                name="text"
+                                id=""></textarea>
                         </div>
+
                         <div className="flex justify-center gap-4">
                             <button
                                 onClick={(e) => handleReviewBtn(e, _id)}
