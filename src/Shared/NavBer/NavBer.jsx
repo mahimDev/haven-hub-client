@@ -9,7 +9,7 @@ const NavBer = () => {
     const nav = <>
         <NavLink> <li>Home</li></NavLink>
         <NavLink to={'rooms'}><li>Rooms</li></NavLink>
-        <NavLink ><li>My Bookings</li></NavLink>
+        <NavLink to={'myBookings'}><li>My Bookings</li></NavLink>
         <NavLink ><li>About-us</li></NavLink>
 
     </>
