@@ -19,19 +19,21 @@ const MyBookingCart = (props = {}) => {
     const [isopenRivew, setIsOpenRivew] = useState(false)
     const [dateValue, setDateValue] = useState(new Date())
     const [comments, setComments] = useState('')
-    const handleCancelBooking = async (_id, roomId) => {
+    const handleCancelBooking = async (_id, roomId, momentDate) => {
         try {
-            await axios.delete(`http://localhost:3000/cancleBooking?bookingId=${_id}&roomId=${roomId}`)
+            await axios.delete(`http://localhost:3000/cancleBooking?bookingId=${_id}&roomId=${roomId}&date=${momentDate}`)
                 .then(res => {
                     if (res.data.deletedCount) {
                         const filter = bookingUser.filter(item => item._id !== _id)
                         setBookingUser(filter)
                         toast.success(`Booking cancelled`)
+                        console.log(res.data)
                     }
                 })
 
+
         } catch (err) {
-            console.log(err)
+            toast.error(err.response.data.error)
         }
     }
 
@@ -100,7 +102,7 @@ const MyBookingCart = (props = {}) => {
             {/* cancel btn */}
             <td className="py-4 px-6 border-b text-end">
                 <button
-                    onClick={() => handleCancelBooking(_id, room_id)}
+                    onClick={() => handleCancelBooking(_id, room_id, momentDate)}
                     className="bg-red-600 hover:scale-110 scale-100 transition-all duration-100 text-white py-2 px-4 rounded-md">Cancel</button>
             </td>
             {isopen &&

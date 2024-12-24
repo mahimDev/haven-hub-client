@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import Banner from '../../Shared/Banner/Banner';
 import Featured from '../../Shared/Featured/Featured';
 import Map from '../../Shared/Map/Map';
@@ -8,6 +9,9 @@ const Home = () => {
 
     return (
         <div>
+            <Helmet>
+                <title> HavenHub</title>
+            </Helmet>
             <header className="max-w-[1440px] mx-auto">
                 <Banner></Banner>
             </header>
