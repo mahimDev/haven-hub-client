@@ -7,6 +7,7 @@ import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import PrivateRoute from "../Private/PrivateRoute";
 import MyBookings from "../Pages/MyBookings/MyBookings";
+import ErrorPage from "../Components/Error/ErrorPage";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
             {
                 path: '/rooms',
                 element: <Rooms></Rooms>,
-                loader: () => fetch('http://localhost:3000/rooms')
+                // loader: () => fetch('http://localhost:3000/rooms')
             },
             {
                 path: '/roomDetails/:id',
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
     },
     {
         path: '*',
-        element: <div>error page</div>
+        element: <ErrorPage></ErrorPage>
     }
 ])
 

@@ -8,17 +8,29 @@ const TheBestPlace = () => {
         const interval = setInterval(() => {
             setActiveCard((prev) => (prev + 1) % cards.length);
 
-        }, 6000)
+        }, 5000)
         return () => clearInterval(interval)
     }, [cards.length])
 
+    // 
+    // 
+    // 
 
     return (
         <div className="flex mt-10 gap-20 mx-auto">
 
-            <div className="flex-1 border">
+            <div className="flex-1  rounded-lg">
                 {
-                    activeCard === 0 && <img src="https://img.icons8.com/?size=100&id=124222&format=png&color=000000" alt="" />
+                    activeCard === 0 && <img className="rounded-lg w-full h-full object-cover" src="https://i.ibb.co.com/LQG2vGw/luxury-meeting-room.jpg" alt="" />
+                }
+                {
+                    activeCard === 1 && <img className="rounded-lg w-full h-full object-cover" src="https://i.ibb.co.com/61YRqYH/TOO-restaurant-Panoramique-vue-Paris-nuit-v2-scaled.jpg" alt="" />
+                }
+                {
+                    activeCard === 2 && <img className="rounded-lg w-full h-full object-cover" src="https://i.ibb.co.com/42tHMm1/Spa-Treatments-for-Ultimate-Well-Being.webp" alt="" />
+                }
+                {
+                    activeCard === 3 && <img className="rounded-lg w-full h-full object-cover" src="https://i.ibb.co.com/1fZ8Y5T/hawaii-main-1200x800.webp" alt="" />
                 }
 
             </div>

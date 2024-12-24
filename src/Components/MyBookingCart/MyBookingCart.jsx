@@ -7,8 +7,10 @@ import ReactStars from "react-stars";
 
 const MyBookingCart = (props = {}) => {
     const { booking, bookingUser, setBookingUser } = props || {}
-    const { room_img, dateValue: date, price, _id } = booking
+    const { room_img, dateValue: date, price, _id, room_id } = booking
     const { user } = useAuth()
+    const timeStamp = Date.now()
+    const isDate = new Date(timeStamp).toLocaleString()
     const userName = user?.displayName
     const email = user?.email
     const momentDate = moment(date).format('MM/DD/YYYY')
@@ -17,9 +19,9 @@ const MyBookingCart = (props = {}) => {
     const [isopenRivew, setIsOpenRivew] = useState(false)
     const [dateValue, setDateValue] = useState(new Date())
     const [comments, setComments] = useState('')
-    const handleCancelBooking = async _id => {
+    const handleCancelBooking = async (_id, roomId) => {
         try {
-            await axios.delete(`http://localhost:3000/cancleBooking/${_id}`)
+            await axios.delete(`http://localhost:3000/cancleBooking?bookingId=${_id}&roomId=${roomId}`)
                 .then(res => {
                     if (res.data.deletedCount) {
                         const filter = bookingUser.filter(item => item._id !== _id)
@@ -55,10 +57,9 @@ const MyBookingCart = (props = {}) => {
         // console.log(id, dateValue)
     }
     const handleReviewBtn = async (e, roomId) => {
+
         e.preventDefault()
-
-        const info = { roomId, userName, email, rating, comments }
-
+        const info = { roomId, userName, email, rating, comments, isDate }
         try {
             await axios.post(`http://localhost:3000/reviews`, info)
                 .then(res => {
@@ -99,7 +100,7 @@ const MyBookingCart = (props = {}) => {
             {/* cancel btn */}
             <td className="py-4 px-6 border-b text-end">
                 <button
-                    onClick={() => handleCancelBooking(_id)}
+                    onClick={() => handleCancelBooking(_id, room_id)}
                     className="bg-red-600 hover:scale-110 scale-100 transition-all duration-100 text-white py-2 px-4 rounded-md">Cancel</button>
             </td>
             {isopen &&
@@ -156,7 +157,7 @@ const MyBookingCart = (props = {}) => {
 
                         <div className="flex justify-center gap-4">
                             <button
-                                onClick={(e) => handleReviewBtn(e, _id)}
+                                onClick={(e) => handleReviewBtn(e, room_id)}
                                 className="bg-softGreen py-2 px-6 rounded-2xl font-semibold mt-3 shadow-2xl hover:shadow-xl"
                             >Confirm
                             </button>

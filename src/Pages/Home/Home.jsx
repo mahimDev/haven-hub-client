@@ -1,6 +1,7 @@
 import Banner from '../../Shared/Banner/Banner';
 import Featured from '../../Shared/Featured/Featured';
 import Map from '../../Shared/Map/Map';
+import Reviews from '../../Shared/Reviews/Reviews';
 import TheBestPlace from '../../Shared/TheBestPlace/TheBestPlace';
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
                 <Featured></Featured>
                 <Map></Map>
                 <TheBestPlace></TheBestPlace>
+                <Reviews></Reviews>
             </main>
             <footer>
                 <h1>footer</h1>

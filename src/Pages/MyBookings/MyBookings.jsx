@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import MyBookingCart from "../../Components/MyBookingCart/MyBookingCart";
+import { Helmet } from "react-helmet";
 
 const MyBookings = () => {
 
@@ -13,7 +14,9 @@ const MyBookings = () => {
     }, [user.email])
     return (
         <div className="max-w-[1440px] mx-auto mt-10">
-
+            <Helmet>
+                <title>Bookings | HavenHub</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="min-w-[90%] shadow-md border mx-auto border-gray-100 my-6">
                     <thead>

@@ -1,13 +1,14 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
-import DatePicker from 'react-date-picker';
 import useAuth from "../../Hooks/useAuth";
 import 'react-date-picker/dist/DatePicker.css';
+import ReactStars from "react-stars";
 const RoomDetails = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [dateValue, setDateValue] = useState(new Date())
+    const [rivew, setReview] = useState([])
     const { user } = useAuth()
     const loaderData = useLoaderData()
     const {
@@ -17,6 +18,7 @@ const RoomDetails = () => {
         room,
         availability,
         room_img,
+        review_count,
         _id: room_id
     } = loaderData
 
@@ -42,6 +44,11 @@ const RoomDetails = () => {
 
 
     }
+    useEffect(() => {
+        axios.get(`http://localhost:3000/reviewsGet?roomId=${room_id}`)
+            .then(res => setReview(res.data))
+    }, [room_id])
+    console.log(rivew)
     return (
         <div className="max-w-[1440px] mx-auto mt-10">
 
@@ -68,11 +75,35 @@ const RoomDetails = () => {
                 </div>
             </div>
             <div className="mt-20">
-                <h1 className="text-xl ">Reviews:</h1>
+                <div className="flex items-center gap-4">
+                    <h1 className="text-xl font-semibold">Rating : </h1>
+                    <ReactStars
+                        count={5}
+                        value={review_count}
+                        edit={false}
+                        size={64}
+                        color2={'#ffd700'} />
+                </div>
+                <div>
+                    <h1 className="text-xl font-semibold pb-3">Comments 👉</h1>
+                    {rivew.length ?
+                        <div>
+                            {
+                                rivew.map(r => <div key={r._id} className=" ">
+                                    <p className="">👦 {r?.userName || 'User Name'}  💭 </p>
+                                    <p className="bg-slate-300  py-2 px-3 rounded w-1/4 mb-2 "> {r?.comments} <span className="text-red-900">{r?.isDate}</span></p>
+                                </div>)
+                            }
+                        </div>
+
+                        : 'No reviews available for this room.'}
+                </div>
                 <div className="p-4">
                     {/* Modal */}
                     {isOpen &&
-                        <div className="bg-lightGray shadow-2xl px-20 py-10 rounded-md w-fit absolute top-[30%] left-[40%] z-50">
+
+
+                        <div className="bg-lightGray absolute shadow-2xl px-20 py-10 rounded-md w-fit top-[30%] left-[40%] z-50 ">
                             <form
                                 className="flex-col flex space-y-3">
                                 <img className="w-60 h-36 object-cover rounded-lg" src={room_img} alt="" />
@@ -86,9 +117,7 @@ const RoomDetails = () => {
                                     type="date"
                                     name="date"
                                     id="" />
-                                {/* <div>
-                                    <DatePicker onChange={setDateValue} value={dateValue} />
-                                </div> */}
+
                                 <div className="flex justify-center gap-4">
                                     <button
                                         onClick={handleBookingBtn}

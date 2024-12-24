@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAuth from "../../Hooks/useAuth";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
     const navigate = useNavigate()
@@ -41,6 +42,9 @@ const Login = () => {
     }
     return (
         <div className="flex justify-center">
+            <Helmet>
+                <title>Login | HavenHub</title>
+            </Helmet>
             <div className={`mt-28 shadow-2xl  w-fit p-10 rounded-md`}>
                 <form
                     onSubmit={handleSignIn}

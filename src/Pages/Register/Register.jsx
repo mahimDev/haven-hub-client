@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
     const isDark = true
@@ -57,6 +58,9 @@ const Register = () => {
     console.log(user)
     return (
         <div className="flex justify-center">
+            <Helmet>
+                <title>Register | HavenHub</title>
+            </Helmet>
             <div className=" mt-28 shadow-2xl  w-fit p-10 rounded-md">
                 <form
                     onSubmit={handleRegistration}

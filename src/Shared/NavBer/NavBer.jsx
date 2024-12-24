@@ -7,7 +7,7 @@ const NavBer = () => {
     const { user, signOutUser } = useAuth()
     const [open, setOpen] = useState(false)
     const nav = <>
-        <NavLink> <li>Home</li></NavLink>
+        <NavLink to={'/'}> <li>Home</li></NavLink>
         <NavLink to={'rooms'}><li>Rooms</li></NavLink>
         <NavLink to={'myBookings'}><li>My Bookings</li></NavLink>
         <NavLink ><li>About-us</li></NavLink>
