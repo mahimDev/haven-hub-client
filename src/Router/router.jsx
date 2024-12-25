@@ -30,7 +30,7 @@ const router = createBrowserRouter([
             {
                 path: '/rooms',
                 element: <Rooms></Rooms>,
-                // loader: () => fetch('https://hotel-booking-server-sable.vercel.app/rooms')
+
             },
             {
                 path: '/roomDetails/:id',

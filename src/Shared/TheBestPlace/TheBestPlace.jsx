@@ -19,7 +19,7 @@ const TheBestPlace = () => {
     return (
         <div className=" mt-40">
             <h1 className="mb-20 text-5xl text-center font-semibold">Our Services</h1>
-            <div className="flex   gap-20 mx-auto">
+            <div className="lg:flex   lg:gap-20 mx-auto">
 
                 <div className="flex-1  rounded-lg">
                     {

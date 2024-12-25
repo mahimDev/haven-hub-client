@@ -7,9 +7,9 @@ const MainLayout = () => {
     return (
         <div className=" font-playfairDisplay">
             <ToastContainer />
-            <nav className="max-w-[1440px] mx-auto" >
-                <NavBer></NavBer>
-            </nav>
+            {/* <nav className="max-w-[1440px] mx-auto" > */}
+            <NavBer></NavBer>
+            {/* </nav> */}
             <Outlet />
             <footer className="max-w-[1440px] mx-auto">
                 <Footer></Footer>

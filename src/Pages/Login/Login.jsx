@@ -50,8 +50,8 @@ const Login = () => {
                     onSubmit={handleSignIn}
                 >
                     <h1 className={`text-5xl text-center font-semibold `}>Sign In</h1>
-                    <div className="flex items-center border-b-2 border-[#4CAF50] gap-2 my-10" >
-                        <img className="w-8 h-7 " src="https://img.icons8.com/?size=100&id=12623&format=png&color=4CAF50" alt="" />
+                    <div className="flex items-center border-b-2 border-[#2E2E2E] gap-2 my-10" >
+                        <img className="w-8 h-7 " src="https://img.icons8.com/?size=100&id=12623&format=png&color=2E2E2E" alt="" />
                         <input
 
                             className={`pl-3 pr-16 py-2 border-none `}
@@ -60,8 +60,8 @@ const Login = () => {
                             name="email"
                             id="" />
                     </div>
-                    <div className="flex items-center border-b-2 border-[#4CAF50] gap-2 my-10" >
-                        <img className="w-8 h-7 " src="https://img.icons8.com/?size=100&id=2862&format=png&color=4CAF50" alt="" />
+                    <div className="flex items-center border-b-2 border-[#2E2E2E] gap-2 my-10" >
+                        <img className="w-8 h-7 " src="https://img.icons8.com/?size=100&id=2862&format=png&color=2E2E2E" alt="" />
                         <input
 
                             className={`pl-3 pr-16 py-2 border-none `}
@@ -80,18 +80,18 @@ const Login = () => {
                         <p className={`border-b cursor-pointer`}>Forget Password</p>
                     </div>
                     <div className="flex mt-10">
-                        <button className="rounded-sm w-full text-center py-3 text-xl font-semibold bg-[#4CAF50] hover:shadow-xl duration-300">Sign In</button>
+                        <button className="rounded-sm w-full text-center py-3 text-xl font-semibold text-lightGray bg-[#2E2E2E] hover:shadow-xl duration-300">Sign In</button>
                     </div>
                 </form>
                 <div className="flex pt-4 mt-4 border-t-2">
                     <button
                         onClick={handleGoogleLogin}
-                        className="flex justify-center items-center  rounded-sm w-full  py-3 text-xl font-semibold bg-[#4CAF50] hover:shadow-xl duration-300">
-                        <img className="w-7" src="https://img.icons8.com/?size=100&id=17950&format=png&color=000000" alt="" />
+                        className="flex justify-center items-center  rounded-sm w-full text-lightGray py-3 text-xl font-semibold bg-[#2E2E2E] hover:shadow-xl duration-300">
+                        <img className="w-7" src="https://img.icons8.com/?size=100&id=17950&format=png&color=ffffff" alt="" />
                         oogle
                     </button>
                 </div>
-                <p className={`pt-2 text-center `}>Don't have an account?  <Link to={'/register'}> <span className={`text-[#4CAF50] border-b-2 hover:border-[#4CAF50] border-white `}>SignUp </span></Link></p>
+                <p className={`pt-2 text-center `}>Don't have an account?  <Link to={'/register'}> <span className={`text-[#2E2E2E] border-b-2 hover:border-[#2E2E2E] border-white `}>SignUp </span></Link></p>
             </div>
         </div>
     );

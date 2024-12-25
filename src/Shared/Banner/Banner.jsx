@@ -24,7 +24,7 @@ const Banner = () => {
                                 <h1 className="  text-[#1A1A1A] ">   </h1>
                                 <div className='App   lg:text-7xl  ml-20 lg:mt-56 text-2xl '>
                                     <h1 style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'bold' }}>
-                                        Plan Your Journey with  <br /> {' '}
+                                        50% off for this winter  <br /> {' '}
                                         <span style={{ color: '#827717', fontWeight: 'bold' }}>
                                             {/* Style will be inherited from the parent element */}
                                             <Typewriter
@@ -78,13 +78,12 @@ const Banner = () => {
                         <div className=''>
                             <h1 className="  text-[#1A1A1A] ">   </h1>
                             <div className='  mr-10 lg:mr-0 lg:text-7xl  text-center lg:pt-56 pt-10 text-3xl font-bold '>
-                                <h1>  Opening Doors </h1> <br /> <span className='ml-[20%] '>to Your Dreams.</span>
+
                             </div>
                         </div>
 
                     </div>
                 </SwiperSlide>
-
             </Swiper>
         </div>
     );

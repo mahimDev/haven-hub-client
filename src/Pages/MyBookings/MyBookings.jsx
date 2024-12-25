@@ -9,7 +9,9 @@ const MyBookings = () => {
     const { user } = useAuth()
     const [bookingUser, setBookingUser] = useState([])
     useEffect(() => {
-        axios.get(`https://hotel-booking-server-sable.vercel.app/myBookings?email=${user.email}`)
+        axios.get(`https://hotel-booking-server-sable.vercel.app/myBookings?email=${user.email}`, {
+            withCredentials: true,
+        })
             .then(res => setBookingUser(res.data))
     }, [user.email])
     return (
@@ -20,7 +22,7 @@ const MyBookings = () => {
             <div className="overflow-x-auto">
                 <table className="min-w-[90%] shadow-md border mx-auto border-gray-100 my-6">
                     <thead>
-                        <tr className="bg-softGreen text-white">
+                        <tr className="bg-darkGray text-white">
                             <th className="py-4 px-6 text-lg text-left border-b">Room Image</th>
                             <th className="py-4 px-6 text-lg text-left border-b">Price</th>
                             {/* <th className="py-4 px-6 text-lg text-left border-b">Date</th> */}

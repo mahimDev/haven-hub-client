@@ -4,6 +4,7 @@ import Featured from '../../Shared/Featured/Featured';
 import Map from '../../Shared/Map/Map';
 import Reviews from '../../Shared/Reviews/Reviews';
 import TheBestPlace from '../../Shared/TheBestPlace/TheBestPlace';
+import Gallery from '../../Shared/Gallery/Gallery';
 
 const Home = () => {
 
@@ -20,11 +21,14 @@ const Home = () => {
                     <Featured></Featured>
                 </section>
                 <section>
-                    {/* map */}
-                    <Map></Map>
+                    <TheBestPlace></TheBestPlace>
                 </section>
                 <section>
-                    <TheBestPlace></TheBestPlace>
+                    <Gallery></Gallery>
+                </section>
+                <section>
+                    {/* map */}
+                    <Map></Map>
                 </section>
                 <section className='pt-20'>
                     <Reviews></Reviews>

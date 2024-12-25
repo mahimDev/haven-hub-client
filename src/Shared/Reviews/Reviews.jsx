@@ -37,7 +37,7 @@ const Reviews = () => {
 
                 {reviews?.map((review, index) => (
                     <SwiperSlide key={review._id} virtualIndex={index}>
-                        <div className='flex text-center flex-col justify-center items-center h-[30vh] border text-darkGray bg-lightGray rounded-lg'>
+                        <div className='flex text-center flex-col justify-center items-center md:h-[30vh] border text-darkGray bg-lightGray rounded-lg'>
                             <h1>{review.userName || 'User Name'}</h1>
                             <ReactStars
                                 count={5}

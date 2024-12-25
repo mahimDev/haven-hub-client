@@ -1,4 +1,4 @@
-# HavenHub:[text](https://havenhub-6c2d4.web.app/)
+# [HavenHub](https://havenhub-6c2d4.web.app/)
 
 ##### The purpose of this project is to provide users with an intuitive platform for booking hotel rooms effortlessly. It aims to enhance the user experience with a responsive design, ensuring accessibility and convenience across devices.
 
