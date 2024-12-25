@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet";
 const Login = () => {
     const navigate = useNavigate()
     const { state } = useLocation()
-    // console.log(state)
+
     const { signInUser, googleLogin } = useAuth()
     const handleSignIn = e => {
         e.preventDefault()
@@ -17,13 +17,13 @@ const Login = () => {
 
         signInUser(email, password)
             .then(res => {
-                console.log('User login')
+
                 toast.success('SignIn successful')
                 navigate(state || "/")
             })
             .catch(err => {
                 const massage = err.code
-                // console.log(massage)
+
                 const split = massage.split('/')[1].split('-').join(" ")
                 toast.error(split)
 
@@ -33,11 +33,11 @@ const Login = () => {
     const handleGoogleLogin = () => {
         googleLogin()
             .then(res => {
-                // console.log(res)
+
                 navigate(state || '/')
             })
             .catch(err => {
-                // console.log(err)
+
             })
     }
     return (

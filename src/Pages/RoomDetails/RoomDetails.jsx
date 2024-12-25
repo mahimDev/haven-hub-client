@@ -1,16 +1,24 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAuth from "../../Hooks/useAuth";
 import 'react-date-picker/dist/DatePicker.css';
 import ReactStars from "react-stars";
+import { useParams } from "react-router-dom";
 const RoomDetails = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [dateValue, setDateValue] = useState(new Date())
     const [rivew, setReview] = useState([])
     const { user } = useAuth()
-    const loaderData = useLoaderData()
+    const [loaderData, setLoaderData] = useState([])
+    const params = useParams()
+
+    useEffect(() => {
+        axios.get(`https://hotel-booking-server-sable.vercel.app/roomDetails/${params.id}`, {
+            withCredentials: true
+        })
+            .then(res => setLoaderData(res.data))
+    }, [params.id])
     const {
         description,
         details,
@@ -28,7 +36,7 @@ const RoomDetails = () => {
         const info = { dateValue, room_id, email }
 
         try {
-            await axios.post('http://localhost:3000/roomBooking', info)
+            await axios.post('https://hotel-booking-server-sable.vercel.app/roomBooking', info)
                 .then(res => {
                     if (res.data.insertedId) {
                         toast.success('booking success')
@@ -45,10 +53,10 @@ const RoomDetails = () => {
 
     }
     useEffect(() => {
-        axios.get(`http://localhost:3000/reviewsGet?roomId=${room_id}`)
+        axios.get(`https://hotel-booking-server-sable.vercel.app/reviewsGet?roomId=${room_id}`)
             .then(res => setReview(res.data))
     }, [room_id])
-    console.log(rivew)
+
     return (
         <div className="max-w-[1440px] mx-auto mt-10">
 

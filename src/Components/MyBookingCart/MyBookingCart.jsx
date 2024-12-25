@@ -21,13 +21,13 @@ const MyBookingCart = (props = {}) => {
     const [comments, setComments] = useState('')
     const handleCancelBooking = async (_id, roomId, momentDate) => {
         try {
-            await axios.delete(`http://localhost:3000/cancleBooking?bookingId=${_id}&roomId=${roomId}&date=${momentDate}`)
+            await axios.delete(`https://hotel-booking-server-sable.vercel.app/cancleBooking?bookingId=${_id}&roomId=${roomId}&date=${momentDate}`)
                 .then(res => {
                     if (res.data.deletedCount) {
                         const filter = bookingUser.filter(item => item._id !== _id)
                         setBookingUser(filter)
                         toast.success(`Booking cancelled`)
-                        console.log(res.data)
+
                     }
                 })
 
@@ -41,29 +41,29 @@ const MyBookingCart = (props = {}) => {
         e.preventDefault()
         try {
             const info = { dateValue }
-            await axios.patch(`http://localhost:3000/upadetingDate/${id}`, info)
+            await axios.patch(`https://hotel-booking-server-sable.vercel.app/upadetingDate/${id}`, info)
                 .then(res => {
                     if (res.data.modifiedCount > 0) {
                         const find = bookingUser.find(item => item._id === id)
                         find.dateValue = dateValue
                         setBookingUser([...bookingUser], find)
-                        console.log(bookingUser)
+
                         toast.success(`Updated date successfully`)
                     }
                 })
 
         } catch (err) {
-            console.log(err)
+
         }
         setIsOpen(false)
-        // console.log(id, dateValue)
+
     }
     const handleReviewBtn = async (e, roomId) => {
 
         e.preventDefault()
         const info = { roomId, userName, email, rating, comments, isDate }
         try {
-            await axios.post(`http://localhost:3000/reviews`, info)
+            await axios.post(`https://hotel-booking-server-sable.vercel.app/reviews`, info)
                 .then(res => {
                     if (res.data.insertedId) {
                         toast.success('Thank you so much for your review 🤗')

@@ -16,7 +16,7 @@ const Register = () => {
         const password = form.get('password')
         const photo = form.get('photo')
         const userInfo = { name, email, password, photo }
-        // console.log(userInfo)
+
         // if (!password) {
         //     return toast.warn('Please enter your password')
         // }
@@ -36,7 +36,7 @@ const Register = () => {
                 // navigate(state || "/")
             })
             .catch(err => {
-                console.log(err.code)
+
                 const massage = err.code
                 const split = massage.split('/')[1].split('-').join(" ")
                 toast.error(split)
@@ -55,7 +55,7 @@ const Register = () => {
 
             })
     }
-    console.log(user)
+
     return (
         <div className="flex justify-center">
             <Helmet>

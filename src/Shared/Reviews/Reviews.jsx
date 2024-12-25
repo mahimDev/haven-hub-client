@@ -12,14 +12,17 @@ const Reviews = () => {
     // Create array with 500 slides
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/reviewsGet`)
+        axios.get(`https://hotel-booking-server-sable.vercel.app/reviewsGet`)
             .then(res => setReviews(res.data))
     }, [])
 
+    // moment().subtract(review?.isDate, 'days').calendar()
 
-    console.log(reviews)
     return (
-        <div className='mt-20'>
+        <div className='mt-36'>
+            <h1 className='text-center mb-20 font-semibold text-5xl text-darkGray'>
+                Our Reviews
+            </h1>
             <Swiper
                 modules={[Virtual, Navigation, Pagination]}
                 slidesPerView={4}
@@ -34,7 +37,7 @@ const Reviews = () => {
 
                 {reviews?.map((review, index) => (
                     <SwiperSlide key={review._id} virtualIndex={index}>
-                        <div className='flex flex-col justify-center items-center h-[30vh] border'>
+                        <div className='flex text-center flex-col justify-center items-center h-[30vh] border text-darkGray bg-lightGray rounded-lg'>
                             <h1>{review.userName || 'User Name'}</h1>
                             <ReactStars
                                 count={5}
@@ -43,8 +46,8 @@ const Reviews = () => {
                                 size={64}
                                 color2={'#ffd700'}
                             />
-                            <p>{review?.comments}</p>
-                            <p>{review?.isDate}</p>
+                            <p className='w-3/4'> {review?.comments}</p>
+                            <p>{new Date(review?.isDate).toLocaleDateString()}</p>
                         </div>
                     </SwiperSlide>
                 ))}

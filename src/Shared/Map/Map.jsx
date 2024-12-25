@@ -5,6 +5,7 @@ import L from 'leaflet';
 // Fix for default marker icon issues in React
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import SectionTitle from '../../Components/SectionTitle/SectionTitle';
 let DefaultIcon = L.icon({
     iconUrl: icon,
     shadowUrl: iconShadow,
@@ -18,6 +19,7 @@ const Map = () => {
 
     return (
         <div>
+            <SectionTitle></SectionTitle>
             <MapContainer center={position} zoom={15} style={{ height: '450px', width: '100%', }}>
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                 <Marker position={position}>

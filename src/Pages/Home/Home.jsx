@@ -16,14 +16,21 @@ const Home = () => {
                 <Banner></Banner>
             </header>
             <main className="max-w-[1440px] mx-auto">
-                <Featured></Featured>
-                <Map></Map>
-                <TheBestPlace></TheBestPlace>
-                <Reviews></Reviews>
+                <section>
+                    <Featured></Featured>
+                </section>
+                <section>
+                    {/* map */}
+                    <Map></Map>
+                </section>
+                <section>
+                    <TheBestPlace></TheBestPlace>
+                </section>
+                <section className='pt-20'>
+                    <Reviews></Reviews>
+                </section>
             </main>
-            <footer>
-                <h1>footer</h1>
-            </footer>
+
         </div>
     );
 };

@@ -9,11 +9,11 @@ const MyBookings = () => {
     const { user } = useAuth()
     const [bookingUser, setBookingUser] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:3000/myBookings/${user.email}`)
+        axios.get(`https://hotel-booking-server-sable.vercel.app/myBookings?email=${user.email}`)
             .then(res => setBookingUser(res.data))
     }, [user.email])
     return (
-        <div className="max-w-[1440px] mx-auto mt-10">
+        <div className="max-w-[1440px] mx-auto mt-10 min-h-[80vh]">
             <Helmet>
                 <title>Bookings | HavenHub</title>
             </Helmet>

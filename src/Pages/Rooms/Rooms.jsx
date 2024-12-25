@@ -1,37 +1,17 @@
-import { useLoaderData } from "react-router-dom";
+
 import RoomCart from "../../Components/RoomCart/RoomCart";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import axios from "axios";
 
 const Rooms = () => {
-    // const loaderData = useLoaderData()
+
     const [rooms, setRooms] = useState([])
-    // const [minValue, setMinValue] = useState(0)
-    // const [maxValue, setMaxValue] = useState(0)
+
     const [min, setMin] = useState('')
     const [max, setMax] = useState('')
 
-    // useEffect(() => {
-    //     try {
-    //         axios.get(`http://localhost:3000/rooms?min=${min}&max=${max}`)
-    //             .then(res => setRooms(res.data))
-    //         console.log(min, max)
-    //     } catch (err) {
-    //         console.log(err)
 
-    //     }
-    // }, [min, max])
-    // const handleBtn = (e) => {
-    //     e.preventDefault()
-    //     const form = new FormData(e.target)
-    //     const minValue = form.get('min')
-    //     const maxValue = form.get('max')
-    //     setMin(minValue)
-    //     setMax(maxValue)
-
-    // }
-    // 
     const handleBtn = (e) => {
         e.preventDefault();
         const form = new FormData(e.target);
@@ -45,13 +25,15 @@ const Rooms = () => {
     useEffect(() => {
 
         axios
-            .get(`http://localhost:3000/rooms?min=${min}&max=${max}`)
+            .get(`https://hotel-booking-server-sable.vercel.app/rooms?min=${min}&max=${max}`)
             .then((res) => setRooms(res.data))
-            .catch((err) => console.error(err));
+            .catch(() => {
+
+            });
 
     }, [min, max]);
     return (
-        <div className="max-w-[1440px] mx-auto mt-10">
+        <div className="max-w-[1440px] mx-auto mt-10 min-h-[80vh]">
             <Helmet>
                 <title>Rooms | HavenHub</title>
             </Helmet>

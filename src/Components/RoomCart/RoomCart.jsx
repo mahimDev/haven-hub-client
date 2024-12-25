@@ -4,16 +4,11 @@ import ReactStars from "react-stars";
 const RoomCart = (props = {}) => {
     const { room: roomInfo } = props || {}
     const {
-        date,
-        description,
-        details,
-        price,
-        room,
+
         review_count,
         room_img,
         _id
     } = roomInfo
-    console.log(review_count)
     return (
         <div className="mt-10">
             <Link to={`/roomDetails/${_id}`}>
