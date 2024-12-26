@@ -10,7 +10,7 @@ const NavBer = () => {
         <NavLink to={'/'}> <li>Home</li></NavLink>
         <NavLink to={'rooms'}><li>Rooms</li></NavLink>
         <NavLink to={'myBookings'}><li>My Bookings</li></NavLink>
-        <NavLink ><li>About-us</li></NavLink>
+        <NavLink to={'about'}><li>About-us</li></NavLink>
 
     </>
     const handleLogout = () => {

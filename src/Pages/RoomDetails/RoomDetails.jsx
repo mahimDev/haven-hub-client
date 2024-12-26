@@ -69,7 +69,7 @@ const RoomDetails = () => {
                 </div>
                 <div className="flex-1 space-y-3">
                     <h1 className="text-2xl font-bold">{room}</h1>
-                    <h1 className="text-lg">{price}</h1>
+                    <h1 className="text-lg">$ {price} /night</h1>
                     <h1 className="text-lg">{availability}</h1>
                     {/* <h1>{details}</h1> */}
                     <h1>{description}</h1>

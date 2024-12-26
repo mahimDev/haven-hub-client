@@ -18,7 +18,7 @@ const FeaturedRoomCart = (props = {}) => {
                     <img className='image' src={room_img} alt="" />
                     <div className="into">
                         <h1 className='card2h1 text-2xl font-semibold '>{room}</h1>
-                        <p className='card2p' >{price}
+                        <p className='card2p' >$ {price}
                         </p>
                         <p className='card2p' >{details}
                         </p>
