@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        world: `url('../worldMap.svg')`,
+        world: `url('https://i.ibb.co.com/9VM1CPx/csm-Winter-02-e702758b7e.jpg')`,
       },
       colors: {
         darkGray: "#2E2E2E",
