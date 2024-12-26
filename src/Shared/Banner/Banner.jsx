@@ -23,7 +23,7 @@ const Banner = () => {
                         <div className='lg:flex'>
                             <div className='  flex-1  lg:pt-64 pt-10'>
                                 <div>
-                                    {/* <h1 className=" lg:text-7xl text-5xl font-semibold text-[#1A1A1A] "> Off for Winter  </h1> */}
+                                    <h1 className=" lg:text-7xl text-5xl font-semibold text-lightGray ml-20 "> Discover Your Perfect Stay. </h1>
                                     {/* <div className='flex items-center gap-4 justify-center mt-10'>
                                         <h1 className='text-xl font-semibold'>Go To</h1>
                                         <Link to={'/rooms'}>
