@@ -53,7 +53,7 @@
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/mahimDev/haven-hub-client
+   git clone https://github.com/mahimDev/haven-hub-client.git
 
    ```
 
