@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { motion } from "motion/react"
 const Banner = () => {
     return (
-        <div className={` h-[85vh] bg-world bg-no-repeat bg-cover mt-10 `}>
+        <div className={` h-[85vh] bg-world bg-no-repeat bg-cover  `}>
 
             <Swiper
                 scrollbar={{

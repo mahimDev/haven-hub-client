@@ -11,7 +11,7 @@ const MainLayout = () => {
             <NavBer></NavBer>
             {/* </nav> */}
             <Outlet />
-            <footer className="max-w-[1440px] mx-auto">
+            <footer className="">
                 <Footer></Footer>
             </footer>
         </div>
