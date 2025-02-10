@@ -36,7 +36,6 @@ const AuthProviter = (props = {}) => {
                     withCredentials: true,
                 })
                     .then(res => {
-
                         setLoading(false)
                     })
 
@@ -45,13 +44,9 @@ const AuthProviter = (props = {}) => {
                     withCredentials: true
                 })
                     .then(res => {
-
                         setLoading(false)
                     })
             }
-
-
-
         })
         return () => {
             return unSubscribe()

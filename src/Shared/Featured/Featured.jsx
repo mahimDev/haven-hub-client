@@ -12,9 +12,10 @@ const Featured = () => {
                     setRooms(res.data)
                 })
         } catch (err) {
-
+            console.log(err)
         }
     }, [])
+    console.log(rooms)
     return (
         <div>
             <h1 className="text-5xl font-bold text-center mb-10  mt-36">  Top Class Rooms</h1>

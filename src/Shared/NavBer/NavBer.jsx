@@ -26,12 +26,12 @@ const NavBer = () => {
     return (
 
 
-        <div className="top-0 mt-8 z-[500] md:w-11/12 mx-auto  sticky md:rounded-full  text-lightGray bg-darkGray/45   py-4 ">
-            <div className="flex justify-between w-11/12 mx-auto items-center  py-2 px-3 rounded-full backdrop-blur-xl">
+        <div className="top-0  z-[500]  mx-auto  sticky   text-lightGray bg-darkGray/60   py-4 ">
+            <div className="flex justify-between md:w-10/12 mx-auto items-center  py-2 px-3 rounded-full ">
 
                 <div className="md:hidden block ">
                     <nav>
-                        <div className={`md:hidden text-xl bg-darkGray/30  text-white p-2 rounded-full `
+                        <div className={`md:hidden text-xl bg-darkGray/20  text-white p-2 rounded-full `
                         } onClick={() => setOpen(!open)}>
                             {
                                 open === true ?
@@ -42,7 +42,7 @@ const NavBer = () => {
                             }
 
                         </div>
-                        <ul className={`md:flex absolute z-[500] md:static bg-darkGray text-white p-3 duration-1000 left-0 rounded-br-xl  ${open ? `${user ? 'top-[95px]' : ' '} ` : '-top-60'} `}>
+                        <ul className={`md:flex absolute z-[500]  md:static bg-darkGray text-white p-3 duration-1000 left-0 rounded-br-xl  ${open ? `${user ? 'top-[95px]' : ' '} ` : '-top-60'} `}>
                             {
                                 nav
                             }
@@ -50,7 +50,7 @@ const NavBer = () => {
                     </nav>
                 </div>
                 <div className="hidden md:block ">
-                    <ul className="md:flex border-2 py-2 px-4 rounded-full gap-4 text-xl  font-semibold ">
+                    <ul className="md:flex border-2 py-2 px-4 rounded-full border-darkGray gap-4 text-xl  font-semibold backdrop-blur-xl">
                         {nav}
                     </ul>
                 </div>
