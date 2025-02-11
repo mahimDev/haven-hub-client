@@ -4,7 +4,7 @@
 
 ## Screenshot
 
-<div hight="450">
+<div >
 <img src="https://i.ibb.co.com/Txs6TyDM/Screenshot-229.png"/>
 </div>
 
