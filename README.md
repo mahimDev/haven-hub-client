@@ -5,7 +5,7 @@
 ## Screenshot
 
 <div >
-<img src="![https://i.ibb.co.com/Txs6TyDM/Screenshot-229.png](https://i.ibb.co.com/TMXFq6c8/Screenshot-253.png)"/>
+![<img src="https://i.ibb.co.com/TMXFq6c8/Screenshot-253.png"/>](https://i.ibb.co.com/TMXFq6c8/Screenshot-253.png)
 </div>
 
 ## Technologies Used
