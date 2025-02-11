@@ -4,7 +4,7 @@ import useAuth from "../../Hooks/useAuth";
 import { toast } from "react-toastify";
 
 const NavBer = () => {
-    const { user, signOutUser } = useAuth()
+    const { user, signOutUser, setToggle, toggle } = useAuth()
     const [open, setOpen] = useState(false)
     const nav = <>
         <NavLink to={'/'}> <li>Home</li></NavLink>
@@ -12,7 +12,7 @@ const NavBer = () => {
         {
             user && <>
                 <NavLink to={'myBookings'}><li>Bookings</li></NavLink>
-                <NavLink to={'profile'}><li>Profile</li></NavLink>
+                <NavLink to={'contact'}><li>Contact</li></NavLink>
             </>
         }
         <NavLink to={'about'}><li>About Us</li></NavLink>
@@ -27,7 +27,7 @@ const NavBer = () => {
             })
     }
     return (
-        <div className="top-0  z-[500]  mx-auto  sticky  backdrop-blur-sm text-lightGray bg-darkGray/60   py-4 ">
+        <div className={`top-0  z-[500]  mx-auto  sticky  backdrop-blur-sm  py-4 ${toggle ? "text-lightGray bg-lightGray/30 " : "text-lightGray bg-darkGray/60"}  `}>
             <div className="flex justify-between md:w-10/12 mx-auto items-center  py-2 px-3  ">
 
                 <div className="md:hidden block ">
@@ -55,7 +55,11 @@ const NavBer = () => {
                         {nav}
                     </ul>
                 </div>
-                <div>
+                <div className="flex items-center gap-3">
+                    {/* toggle button */}
+                    <button onClick={() => setToggle((prev) => !prev)} className={`flex h-6 w-14 items-center rounded-full border border-darkGray   ${toggle ? 'bg-darkGray/50' : null}`}>
+                        <div className={`size-5 rounded-full bg-darkGray duration-300 ${toggle ? 'translate-x-8' : 'translate-x-1'}`}></div>
+                    </button>
                     {
                         user ?
                             <div className="group relative">
@@ -88,7 +92,9 @@ const NavBer = () => {
                                     >Register</button></Link>
                             </div>
                     }
+
                 </div>
+
             </div>
         </div>
 

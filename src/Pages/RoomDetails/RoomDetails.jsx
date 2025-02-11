@@ -9,7 +9,7 @@ const RoomDetails = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [dateValue, setDateValue] = useState(new Date())
     const [rivew, setReview] = useState([])
-    const { user } = useAuth()
+    const { user, toggle } = useAuth()
     const [loaderData, setLoaderData] = useState([])
     const params = useParams()
 
@@ -58,16 +58,16 @@ const RoomDetails = () => {
     }, [room_id])
 
     return (
-        <div className="max-w-[1440px] mx-auto mt-10">
+        <div className={`max-w-[1440px] mx-auto mt-10 ${toggle && "text-lightGray"}`}>
 
-            <div className="flex gap-10 ">
+            <div className="md:flex gap-10 ">
                 <div className="flex-1 ">
-                    <div className="bg-lightGray shadow-2xl w-fit p-1 rounded-xl">
-                        <img className="w-[500px] h-[400px] object-cover rounded-xl" src={room_img} alt="" />
+                    <div className="bg-lightGray shadow-2xl w-fit p-1 rounded">
+                        <img className="w-[500px] h-[400px] object-cover rounded" src={room_img} alt="" />
 
                     </div>
                 </div>
-                <div className="flex-1 space-y-3">
+                <div className="flex-1 space-y-3 m-4">
                     <h1 className="text-2xl font-bold">{room}</h1>
                     <h1 className="text-lg">$ {price} /night</h1>
                     <h1 className="text-lg">{availability}</h1>
@@ -77,7 +77,7 @@ const RoomDetails = () => {
                         <button
 
                             onClick={() => setIsOpen(true)}
-                            className="text-center shadow-xl w-full py-3 rounded-full font-semibold bg-warmOrange hover:bg-softGreen duration-300 hover:text-xl hover:shadow-2xl">Book Now</button>
+                            className={` text-center shadow-xl w-full py-3 rounded font-semibold  duration-500 hover:text-xl hover:shadow-2xl ${toggle ? "bg-lightGray/70 hover:bg-lightGray text-darkGray" : "bg-darkGray/50 hover:bg-darkGray hover:text-lightGray "}`}>Book Now</button>
 
                     </div>
                 </div>
@@ -99,7 +99,7 @@ const RoomDetails = () => {
                             {
                                 rivew.map(r => <div key={r._id} className=" ">
                                     <p className="">👦 {r?.userName || 'User Name'}  💭 </p>
-                                    <p className="bg-slate-300  py-2 px-3 rounded w-1/4 mb-2 "> {r?.comments} <span className="text-red-900">{r?.isDate}</span></p>
+                                    <p className={`  py-2 px-3 rounded md:w-1/4 mb-2  ${toggle ? "bg-lightGray text-darkGray" : "bg-darkGray  text-lightGray"}`}> {r?.comments}  <span className="text-red-500 ml-2">{r?.isDate}</span></p>
                                 </div>)
                             }
                         </div>

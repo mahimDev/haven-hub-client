@@ -8,7 +8,7 @@ import ReactStars from "react-stars";
 const MyBookingCart = (props = {}) => {
     const { booking, bookingUser, setBookingUser } = props || {}
     const { room_img, dateValue: date, price, _id, room_id } = booking
-    const { user } = useAuth()
+    const { user, toggle } = useAuth()
     const timeStamp = Date.now()
     const isDate = new Date(timeStamp).toLocaleString()
     const userName = user?.displayName
@@ -77,7 +77,7 @@ const MyBookingCart = (props = {}) => {
 
     }
     return (
-        <tr className="hover:bg-gray-50 border-b transition duration-300">
+        <tr className={`hover:bg-gray-50 border-b transition duration-300 ${toggle && "text-lightGray hover:text-darkGray"}`}>
             <td className="py-4 px-4 flex justify-start">
                 <img src={room_img} className="h-16 w-16 object-cover rounded  bg-gray-300" />
             </td>

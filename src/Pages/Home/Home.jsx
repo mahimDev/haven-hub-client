@@ -17,20 +17,20 @@ const Home = () => {
                 <Banner></Banner>
             </header>
             <main className="max-w-[1440px] mx-auto">
-                <section>
+                <section className='md:mt-36 mt-20'>
                     <Featured></Featured>
                 </section>
-                <section>
+                <section className='md:mt-36 mt-20'>
                     <TheBestPlace></TheBestPlace>
                 </section>
-                <section>
+                <section className='md:mt-36 mt-20'>
                     <Gallery></Gallery>
                 </section>
                 <section>
                     {/* map */}
                     <Map></Map>
                 </section>
-                <section className='pt-20'>
+                <section className='md:mt-36 mt-20'>
                     <Reviews></Reviews>
                 </section>
             </main>

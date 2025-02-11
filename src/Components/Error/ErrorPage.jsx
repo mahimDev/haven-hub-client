@@ -5,14 +5,15 @@ const ErrorPage = () => {
     const ball = {
         width: 80,
         height: 80,
-        backgroundColor: "#FFB74D",
+        backgroundColor: "#be0000",
         borderRadius: "50%",
     }
     return (
         <div className="bg-slate-100 h-[100vh] flex  justify-center ">
             <div className="lg:mt-96 mt-20">
-                <div className="flex justify-center items-center text-7xl font-bold">4
+                <div className="flex justify-center items-center text-7xl font-bold ">4
                     <motion.div
+
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{
@@ -26,7 +27,7 @@ const ErrorPage = () => {
                 </div>
                 <div className="text-center py-5 text-7xl"><h1>Error Page</h1></div>
                 <div className="text-center mt-10">
-                    <Link to={'/'}><button className="border py-2 px-7 rounded-xl text-2xl font-semibold bg-warmOrange"> Go To Home</button></Link>
+                    <Link to={'/'}><button className="border py-2 px-7 rounded text-2xl font-semibold bg-darkGray text-lightGray"> Go To Home</button></Link>
                 </div>
             </div>
         </div>

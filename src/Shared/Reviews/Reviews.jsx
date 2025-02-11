@@ -6,9 +6,11 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import ReactStars from 'react-stars';
 import axios from 'axios';
+import useAuth from '../../Hooks/useAuth';
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
+    const { toggle } = useAuth()
     // Create array with 500 slides
 
     useEffect(() => {
@@ -19,8 +21,8 @@ const Reviews = () => {
     // moment().subtract(review?.isDate, 'days').calendar()
 
     return (
-        <div className='mt-36'>
-            <h1 className='text-center mb-20 font-semibold text-5xl text-darkGray'>
+        <div className=''>
+            <h1 className={`text-center  font-semibold text-5xl text-darkGray mb-20 ${toggle && "text-lightGray"}`}>
                 Our Reviews
             </h1>
             {/* lg device */}
@@ -40,7 +42,7 @@ const Reviews = () => {
 
                     {reviews?.map((review, index) => (
                         <SwiperSlide key={review._id} virtualIndex={index}>
-                            <div className='flex text-center flex-col justify-center items-center lg:h-[250px]   border text-darkGray bg-lightGray rounded'>
+                            <div className={`flex text-center flex-col justify-center items-center lg:h-[250px]   border  rounded ${toggle ? "text-lightGray bg-darkGray" : "text-darkGray bg-lightGray"}`}>
                                 <h1>{review.userName || 'User Name'}</h1>
 
                                 <ReactStars

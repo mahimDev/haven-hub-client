@@ -12,7 +12,7 @@
 
 .snake::before {
   content: "";
-  background-image: conic-gradient(#2e2e2e 20deg, transparent 120deg);
+  background-image: conic-gradient(#4a4a4ae6 20deg, transparent 120deg);
   width: 150%;
   height: 400%;
   border-radius: 30px;

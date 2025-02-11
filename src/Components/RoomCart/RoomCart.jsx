@@ -12,8 +12,8 @@ const RoomCart = (props = {}) => {
     return (
         <div className="mt-10">
             <Link to={`/roomDetails/${_id}`}>
-                <div className={`relative  w-80 h-80 p-3 rounded-xl group hover:bg-lightGray `}>
-                    <img className="w-full h-full object-cover rounded-xl group-hover:scale-110  duration-500 shadow-xl" src={room_img || ''} alt="" />
+                <div className={`relative  w-80 h-80 p-3 rounded group hover:bg-lightGray `}>
+                    <img className="w-full h-full object-cover rounded group-hover:scale-110  duration-500 shadow-xl" src={room_img || ''} alt="" />
                     <div className="absolute flex  items-center gap-4 bottom-5 group-hover:scale-110  duration-700 left-5">
                         <ReactStars
                             count={5}

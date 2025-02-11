@@ -55,7 +55,7 @@ const Rooms = () => {
                         type="number"
                         name="max"
                         id="" />
-                    <button className="py-2 px-5 border rounded-r-md bg-darkGray text-lightGray font-semibold">Filter </button>
+                    <button className="py-2 px-5 border rounded-r bg-darkGray text-lightGray font-semibold">Filter </button>
                 </form>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">

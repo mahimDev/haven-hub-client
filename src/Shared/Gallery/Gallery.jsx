@@ -1,12 +1,14 @@
 import { easeOut } from "motion";
 import { motion } from "motion/react"
+import useAuth from "../../Hooks/useAuth";
 
 const Gallery = () => {
+    const { toggle } = useAuth()
     return (
-        <div className="mt-36">
-            <h1 className="text-5xl font-semibold text-center text-darkGray">Our Branches</h1>
-            <p className="font-light mt-3 text-center text-darkGray">Your Perfect Stay Awaits – Across Every Major Country!</p>
-            <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 mt-20 ">
+        <div className="">
+            <h1 className={`text-5xl font-bold text-center  text-darkGray  ${toggle && "text-lightGray"}`}>Our Branches</h1>
+            <p className={`font-light mt-2 text-center text-darkGray mb-20 ${toggle && "text-lightGray"}`}>Your Perfect Stay Awaits – Across Every Major Country!</p>
+            <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1  ">
                 {/* 1 */}
                 <motion.div
                     transition={{ duration: 8, delay: 1, ease: easeOut, repeat: Infinity }}
